@@ -48,7 +48,7 @@ export const useSignUp = () => {
 };
 
 export const useCheckUsername = (username: string) => {
-  const { data, isPending, error } = useQuery({
+  const { data, isLoading, error } = useQuery({
     queryKey: ["auth", "check-username", username],
     queryFn: async () => {
       const response = await fetch(`/api/auth/check-username/${username}`);
@@ -64,5 +64,5 @@ export const useCheckUsername = (username: string) => {
     refetchOnMount: false,
   });
 
-  return { data, isLoading: isPending, error };
+  return { data, isLoading, error };
 };

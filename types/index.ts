@@ -1,6 +1,6 @@
 import { ClassValue } from "clsx";
 import { SignIn } from "@/lib/validators";
-import { Message } from "@prisma/client";
+import { Message } from "@/lib/db";
 
 export interface ReactNodeProps {
   children: Readonly<React.ReactNode>;
