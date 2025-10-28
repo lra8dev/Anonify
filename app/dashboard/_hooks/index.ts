@@ -78,7 +78,7 @@ export const useMessageAccept = () => {
 };
 
 export const useFetchMessages = () => {
-  const { data, refetch, isPending, error } = useQuery({
+  const { data, refetch, isPending, isRefetching, error } = useQuery({
     queryKey: ["messages", "fetch"],
     queryFn: async () => {
       const response = await fetch("/api/fetch-messages");
@@ -96,15 +96,15 @@ export const useFetchMessages = () => {
       return data;
     },
 
-    refetchOnMount: false,
-    refetchOnWindowFocus: false,
+    refetchOnMount: true,
+    refetchOnWindowFocus: true,
   });
 
   if (error) {
     toast.error(error.message);
   }
 
-  return { refetch, messages: data?.messages, isPending };
+  return { refetch, messages: data?.messages, isPending, isRefetching };
 };
 
 export const useDeleteMessage = () => {

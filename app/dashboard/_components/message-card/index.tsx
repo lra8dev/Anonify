@@ -31,7 +31,7 @@ export const MessageCard = ({ id, content, createdAt }: MessageCardProps) => {
       <CardHeader className="p-0">
         <CardTitle>{content}</CardTitle>
         <AlertDialog>
-          <AlertDialogTrigger>
+          <AlertDialogTrigger asChild>
             <Button
               size="icon"
               disabled={isDeletePending}
