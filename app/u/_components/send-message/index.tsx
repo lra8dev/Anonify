@@ -12,7 +12,6 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { Loader2 } from "lucide-react";
 import { useSendMessageForm } from "../../_hooks";
-import { useSession } from "next-auth/react";
 import { useEffect } from "react";
 
 interface SendMessageProps {
@@ -23,13 +22,11 @@ interface SendMessageProps {
 export const SendMessage = ({ username, form }: SendMessageProps) => {
   const { sendMessageForm, isPending, handleSubmit, onSubmit } = form;
 
-  const { data: session } = useSession();
-
   useEffect(() => {
-    if (session?.user?.id) {
-      sendMessageForm.setValue("username", session.user.username);
+    if (username) {
+      sendMessageForm.setValue("username", username);
     }
-  }, [session, sendMessageForm, username]);
+  }, [username, sendMessageForm]);
 
   return (
     <div className="mx-auto">
