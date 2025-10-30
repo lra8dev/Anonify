@@ -58,7 +58,7 @@ export const useSendMessageForm = () => {
 
   const onSubmit = (payload: Message) => {
     sendMessage(payload);
-    sendMessageForm.reset();
+    sendMessageForm.resetField("content");
   };
 
   return {

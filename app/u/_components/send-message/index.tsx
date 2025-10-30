@@ -26,7 +26,7 @@ export const SendMessage = ({ username, form }: SendMessageProps) => {
     if (username) {
       sendMessageForm.setValue("username", username);
     }
-  }, [username, sendMessageForm]);
+  }, []);
 
   return (
     <div className="mx-auto">
